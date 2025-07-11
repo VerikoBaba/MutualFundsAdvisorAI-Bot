@@ -1,0 +1,8 @@
+openai
+python-telegram-bot==20.0
+paddleocr
+paddlepaddle
+PyMuPDF
+python-dotenv
+requests
+beautifulsoup4

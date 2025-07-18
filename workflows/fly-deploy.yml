@@ -1,0 +1,23 @@
+name: 🚀 Deploy to Fly.io
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is not 'main'
+
+jobs:
+  deploy:
+    name: Deploy App to Fly.io
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Set up Fly.io CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: 🚀 Deploy to Fly.io
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl deploy --remote-only
